@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Morteza Karimi</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Morteza Karimi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Hello! I&amp;rsquo;m &lt;strong&gt;Morteza Karimi&lt;/strong&gt;, a passionate and detail-oriented &lt;strong&gt;Full-Stack Software Engineer&lt;/strong&gt; and &lt;strong&gt;Team Leader&lt;/strong&gt; based in Tehran, Iran. I specialize in building &lt;strong&gt;efficient, scalable, and user-friendly applications&lt;/strong&gt;, with expertise in both &lt;strong&gt;front-end and back-end development&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;professional-experience&#34;&gt;&#xA;  Professional Experience&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#professional-experience&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Throughout my career, I&amp;rsquo;ve gained extensive experience in various technologies and frameworks, including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Front-End Development&lt;/strong&gt;: Expert in React, Next.js, and Angular, crafting responsive and dynamic user interfaces.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Back-End Development&lt;/strong&gt;: Proficient in NestJS, Express.js, and Python, designing robust and secure server-side applications.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database Management&lt;/strong&gt;: Skilled in PostgreSQL and MySQL, ensuring data integrity and optimal performance.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps &amp;amp; Deployment&lt;/strong&gt;: Familiar with CI/CD pipelines and deployment strategies, optimizing development workflows.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;As a &lt;strong&gt;team leader&lt;/strong&gt;, I focus on fostering collaboration, mentoring team members, and creating an environment that encourages innovation. I strongly believe in &lt;strong&gt;continuous learning&lt;/strong&gt; and actively seek new technologies and best practices to enhance project outcomes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

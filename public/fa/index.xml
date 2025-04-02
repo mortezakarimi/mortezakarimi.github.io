@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>مرتضی کریمی</title>
+    <link>http://localhost:1313/fa/</link>
+    <description>Recent content on مرتضی کریمی</description>
+    <generator>Hugo</generator>
+    <language>fa</language>
+    <atom:link href="http://localhost:1313/fa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>درباره من</title>
+      <link>http://localhost:1313/fa/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/fa/about/</guid>
+      <description>&lt;h2 id=&#34;معرفی&#34;&gt;&#xA;  معرفی&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%d9%85%d8%b9%d8%b1%d9%81%db%8c&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;سلام! من &lt;strong&gt;مرتضی کریمی&lt;/strong&gt;، یک &lt;strong&gt;برنامه‌نویس فول‌استک&lt;/strong&gt; و &lt;strong&gt;رهبر تیم&lt;/strong&gt; با تجربه، ساکن تهران هستم. با تخصص در توسعه &lt;strong&gt;فرانت‌اند و بک‌اند&lt;/strong&gt;، تمرکزم بر ساخت &lt;strong&gt;برنامه‌های کارآمد، مقیاس‌پذیر و کاربرپسند&lt;/strong&gt; است.&lt;/p&gt;&#xA;&lt;h2 id=&#34;تجربه-حرفهای&#34;&gt;&#xA;  تجربه حرفه‌ای&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%d8%aa%d8%ac%d8%b1%d8%a8%d9%87-%d8%ad%d8%b1%d9%81%d9%87%d8%a7%db%8c&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;در طول سال‌ها، مهارت‌های خود را در حوزه‌های مختلف توسعه نرم‌افزار تقویت کرده‌ام:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;توسعه فرانت‌اند&lt;/strong&gt;: تسلط بر React، Next.js و Angular برای ساخت رابط‌های کاربری پویا و واکنش‌گرا.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;توسعه بک‌اند&lt;/strong&gt;: تجربه در NestJS، Express.js و Python برای ایجاد سیستم‌های سرور قدرتمند و امن.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;مدیریت پایگاه داده&lt;/strong&gt;: مهارت در PostgreSQL و MySQL، بهینه‌سازی عملکرد و تضمین یکپارچگی داده‌ها.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;دواپس و استقرار&lt;/strong&gt;: آشنایی با CI/CD و روش‌های بهینه‌سازی فرآیندهای توسعه و استقرار.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;به عنوان رهبر تیم، به &lt;strong&gt;همکاری، مربی‌گری و ایجاد محیطی خلاق و نوآورانه&lt;/strong&gt; اهمیت می‌دهم. یادگیری مداوم برای من یک اصل کلیدی است و همواره به دنبال &lt;strong&gt;به‌روز بودن در فناوری‌ها و روش‌های نوین توسعه نرم‌افزار&lt;/strong&gt; هستم.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
