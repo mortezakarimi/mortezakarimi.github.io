@@ -224,3 +224,7 @@ rtl = true
 name = "درباره من"
 weight = 1
 url = "about/"
+
+[caches]
+    [caches.images]
+        dir = ':cacheDir/images'
