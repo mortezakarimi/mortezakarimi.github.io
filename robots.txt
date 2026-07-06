@@ -1,4 +1,1 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://morteza-karimi.com/sitemap.xml
