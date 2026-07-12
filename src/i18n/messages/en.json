@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Morteza Karimi | Team Lead & Senior Software Engineer — Node.js, NestJS, Next.js",
+      "description": "Team Lead and Senior Software Engineer with 13+ years building ERP platforms, modern web apps, and high-performance backends. Based in Tehran, Iran."
+    },
+    "about": {
+      "title": "About Morteza Karimi | Team Lead & Senior Software Engineer",
+      "description": "13+ years turning legacy workflows into modern ERP and web systems. Led teams at Trium Novem, BUGLOOS, and ParsPack using Node.js, NestJS, and Next.js."
+    },
+    "skills": {
+      "title": "Skills | Node.js, NestJS, Next.js, React & DevOps — Morteza Karimi",
+      "description": "Technical skills across team leadership, React, Next.js, NestJS, PostgreSQL, Docker, Ansible, and CI/CD — built for scalable production systems."
+    },
+    "contact": {
+      "title": "Contact Morteza Karimi | Team Lead & Senior Software Engineer",
+      "description": "Reach Morteza Karimi for team lead, senior engineering, and consulting opportunities. Email me@morteza-karimi.com or connect on LinkedIn."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Team Lead & Senior Software Engineer",
+    "subtitle": "Node.js · NestJS · Next.js",
+    "headline": "I turn complex systems into fast, reliable software",
+    "description": "With 13 years in software engineering, I help teams replace fragmented tools with modern ERP and web platforms that cut errors, speed up delivery, and scale with the business.",
+    "role": "Back End Developer at {company}",
+    "location": "Based in {location}",
+    "ctaAbout": "See my experience",
+    "ctaContact": "Start a conversation",
+    "ctaSkills": "View skills"
+  },
+  "about": {
+    "title": "About Me",
+    "intro": {
+      "title": "What I do",
+      "content": "I'm Morteza Karimi, a Team Lead and Senior Software Engineer based in Tehran. I specialize in migrating legacy workflows to modern JavaScript stacks and building ERP platforms that teams can trust every day."
+    },
+    "experience": {
+      "title": "How I work",
+      "content": "I lead with clarity and code quality. Whether I'm architecting a NestJS backend, shipping a Next.js frontend, or mentoring developers, I focus on measurable outcomes — fewer manual steps, faster releases, and systems that stay maintainable as they grow."
+    },
+    "opensource": {
+      "title": "Open source",
+      "content": "I contribute to the developer community through open-source projects on GitHub. Sharing reusable tools and lessons learned is part of how I grow — and how I help other engineers move faster."
+    },
+    "interests": {
+      "title": "Beyond the screen",
+      "content": "Outside of engineering, I enjoy reading, exploring new ideas, and spending time with my three cats. Curiosity away from the keyboard keeps my problem-solving sharp when I'm back at it."
+    },
+    "connect": {
+      "title": "Let's talk",
+      "content": "I'm open to team lead and senior engineering roles, consulting, and collaborations on ambitious products. Send an email or connect on LinkedIn — I'd like to hear what you're building."
+    },
+    "resume": "Download resume",
+    "highlightsTitle": "Impact at a glance",
+    "educationTitle": "Education",
+    "experienceTitle": "Recent roles"
+  },
+  "highlights": {
+    "erpImpact": "fewer process-related problems after replacing Excel workflows with a unified ERP",
+    "efficiency": "increase in operational efficiency for construction project management",
+    "timeTracking": "improvement in employee time-tracking accuracy with a mobile app",
+    "apiPerformance": "reduction in API response times through query and cache optimization"
+  },
+  "experience": {
+    "parspack": {
+      "title": "Back End Developer",
+      "period": "Feb 2026 – Present",
+      "location": "Tehran, Iran",
+      "summary": "Building backend services at ParsPack, contributing to scalable cloud and hosting infrastructure for production workloads."
+    },
+    "trium": {
+      "title": "Development Team Lead & Full-stack Developer",
+      "period": "Aug 2023 – Sep 2025",
+      "location": "Berlin, Germany",
+      "summary": "Led a team of 3 developers building a construction ERP that replaced Excel-based workflows, shipped a mobile time-tracking app, and improved delivery with Next.js, NestJS, and Jira."
+    },
+    "bugloos": {
+      "title": "Full Stack & DevOps Engineer",
+      "period": "Aug 2019 – Sep 2023",
+      "location": "Bussum, Netherlands",
+      "summary": "Progressed from backend developer to full-stack and DevOps engineer — optimizing queries, introducing Angular, and automating deployments with Docker, Ansible, and GitLab CI/CD."
+    }
+  },
+  "education": {
+    "masters": {
+      "degree": "Master's degree, Artificial Intelligence",
+      "period": "2017 – 2021"
+    },
+    "bachelors": {
+      "degree": "Bachelor's degree, Computer Software Engineering",
+      "period": "2012 – 2017"
+    }
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "subtitle": "The tools and practices I use to ship reliable software — from architecture and leadership to deployment.",
+    "categories": {
+      "leadership": {
+        "title": "Leadership & Delivery",
+        "description": "Leading teams, coordinating delivery, and raising code quality across releases."
+      },
+      "frontend": {
+        "title": "Front-End Development",
+        "description": "Responsive interfaces with React, Next.js, and Angular — built for speed and clarity."
+      },
+      "backend": {
+        "title": "Back-End Development",
+        "description": "Robust APIs and services with Node.js, NestJS, and proven database design."
+      },
+      "database": {
+        "title": "Data & Performance",
+        "description": "PostgreSQL, MySQL, query tuning, and caching strategies for production scale."
+      },
+      "devops": {
+        "title": "DevOps & Infrastructure",
+        "description": "Docker, Ansible, CI/CD pipelines, and deployment workflows that teams can repeat."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Looking for a team lead or senior engineer? Tell me about your product, team, or timeline — I'll get back to you.",
+    "email": "Email",
+    "phone": "Phone",
+    "social": "Connect online",
+    "copyEmail": "Copy email",
+    "copied": "Copied!"
+  },
+  "footer": {
+    "builtWith": "Built with Next.js & HeroUI",
+    "rights": "All rights reserved."
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "fa": "فارسی"
+  }
+}
