@@ -25,6 +25,7 @@
   },
   "hero": {
     "greeting": "Hello, I'm",
+    "Morteza Karimi": "Morteza Karimi",
     "title": "Team Lead & Senior Software Engineer",
     "subtitle": "Node.js · NestJS · Next.js",
     "headline": "I turn complex systems into fast, reliable software",

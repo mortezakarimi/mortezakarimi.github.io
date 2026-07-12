@@ -32,7 +32,7 @@ export function Hero() {
           </p>
 
           <h1 className="mb-3 text-4xl font-bold tracking-tight md:text-5xl">
-            <span className="text-gradient">{siteConfig.name}</span>
+            <span className="text-gradient">{t(siteConfig.name)}</span>
           </h1>
 
           <p className="mb-2 text-xl font-semibold text-[var(--color-foreground)]">
