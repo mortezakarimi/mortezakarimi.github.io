@@ -1,4 +1,4 @@
-import { buildPageSchemaGraph } from "@/lib/schema";
+import { buildPageSchemas } from "@/lib/schema";
 import type { PageKey } from "@/lib/seo";
 import type { Locale } from "@/i18n/routing";
 
@@ -8,12 +8,17 @@ type Props = {
 };
 
 export async function JsonLd({ locale, page }: Props) {
-  const schema = await buildPageSchemaGraph({ locale, page });
+  const schemas = await buildPageSchemas({ locale, page });
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      {schemas.map((schema, index) => (
+        <script
+          key={`${page}-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+    </>
   );
 }

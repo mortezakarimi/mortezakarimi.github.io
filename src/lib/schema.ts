@@ -4,32 +4,41 @@ import {
   hreflangTags,
   type PageKey,
 } from "@/lib/seo";
-import { getSiteUrl } from "@/lib/site-url";
+import { absoluteUrl, getSiteUrl } from "@/lib/site-url";
 import { profile, siteConfig } from "@/lib/site";
 import { getTranslations } from "next-intl/server";
 import type {
   BreadcrumbList,
   CollegeOrUniversity,
+  CollectionPage,
   ContactPage,
+  ContactPoint,
   DefinedTerm,
   EducationalOccupationalCredential,
-  Graph,
+  FAQPage,
   IdReference,
+  ImageObject,
   ItemList,
   ListItem,
+  Occupation,
   Organization,
+  OrganizationRole,
   Person,
   PostalAddress,
   ProfilePage,
+  Question,
   Thing,
   WebPage,
   WebSite,
+  WithContext,
 } from "schema-dts";
 
 type BuildSchemaOptions = {
   locale: Locale;
   page: PageKey;
 };
+
+type JsonLdDocument = WithContext<Thing>;
 
 const navKeys: Record<PageKey, "home" | "about" | "skills" | "contact"> = {
   home: "home",
@@ -38,14 +47,38 @@ const navKeys: Record<PageKey, "home" | "about" | "skills" | "contact"> = {
   contact: "contact",
 };
 
+const experienceDates: Record<
+  (typeof profile.experience)[number]["id"],
+  { startDate: string; endDate?: string }
+> = {
+  parspack: { startDate: "2026-02" },
+  trium: { startDate: "2023-08", endDate: "2025-09" },
+  bugloos: { startDate: "2019-08", endDate: "2023-09" },
+};
+
+const faqSectionKeys = [
+  "intro",
+  "experience",
+  "opensource",
+  "interests",
+  "connect",
+] as const;
+
 function schemaRef(id: string): IdReference {
   return { "@id": id };
 }
 
-export async function buildPageSchemaGraph({
+function withContext<T extends Thing>(data: T): WithContext<T> {
+  return {
+    "@context": "https://schema.org",
+    ...(data as object),
+  } as WithContext<T>;
+}
+
+export async function buildPageSchemas({
   locale,
   page,
-}: BuildSchemaOptions): Promise<Graph> {
+}: BuildSchemaOptions): Promise<JsonLdDocument[]> {
   const siteUrl = getSiteUrl();
   const canonical = getCanonicalUrl(locale, page);
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
@@ -53,28 +86,72 @@ export async function buildPageSchemaGraph({
   const title = tMeta(`${page}.title`);
   const description = tMeta(`${page}.description`);
 
+  const organizationId = `${siteUrl}/#organization`;
   const websiteId = `${siteUrl}/#website`;
   const personId = `${siteUrl}/#person`;
   const webpageId = `${canonical}#webpage`;
   const breadcrumbId = `${canonical}#breadcrumb`;
+  const skillsListId = `${canonical}#skills`;
+  const faqId = `${canonical}#faq`;
+
+  const logoId = `${siteUrl}/#logo`;
+  const avatarId = `${personId}/image`;
+
+  const logoImage: ImageObject = {
+    "@type": "ImageObject",
+    "@id": logoId,
+    url: absoluteUrl(siteConfig.logo),
+    contentUrl: absoluteUrl(siteConfig.logo),
+    width: "512",
+    height: "512",
+    caption: siteConfig.name,
+  };
+
+  const avatarImage: ImageObject = {
+    "@type": "ImageObject",
+    "@id": avatarId,
+    url: siteConfig.avatar,
+    contentUrl: siteConfig.avatar,
+    width: "480",
+    height: "480",
+    caption: siteConfig.name,
+  };
+
+  const organization: Organization = {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    logo: schemaRef(logoId),
+    image: schemaRef(logoId),
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    sameAs: siteConfig.social.map((social) => social.href),
+    founder: schemaRef(personId),
+  };
 
   const website: WebSite = {
     "@type": "WebSite",
     "@id": websiteId,
-    url: `${siteUrl}/`,
+    url: absoluteUrl("/"),
     name: siteConfig.name,
+    alternateName: siteConfig.headline,
     description: tMeta("home.description"),
     inLanguage: [hreflangTags.en, hreflangTags.fa],
-    publisher: schemaRef(personId),
+    publisher: schemaRef(organizationId),
     author: schemaRef(personId),
+    copyrightHolder: schemaRef(organizationId),
+    about: schemaRef(personId),
   };
 
-  const person: Person = {
+  const person = {
     "@type": "Person",
     "@id": personId,
     name: siteConfig.name,
-    url: siteUrl,
-    image: siteConfig.avatar,
+    givenName: "Morteza",
+    familyName: "Karimi",
+    url: absoluteUrl("/"),
+    image: schemaRef(avatarId),
     email: `mailto:${siteConfig.email}`,
     telephone: siteConfig.phone,
     jobTitle: siteConfig.headline,
@@ -82,14 +159,26 @@ export async function buildPageSchemaGraph({
     worksFor: {
       "@type": "Organization",
       name: siteConfig.company,
-      url: siteUrl,
     } satisfies Organization,
+    homeLocation: {
+      "@type": "Place",
+      name: profile.person.location[locale],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Tehran",
+        addressCountry: "IR",
+      } satisfies PostalAddress,
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Tehran",
       addressCountry: "IR",
     } satisfies PostalAddress,
-    sameAs: siteConfig.social.map((social) => social.href),
+    sameAs: [
+      siteConfig.personalWebsite,
+      siteConfig.resumeUrl,
+      ...siteConfig.social.map((social) => social.href),
+    ],
     knowsAbout: [
       ...profile.skills.frontend,
       ...profile.skills.backend,
@@ -98,6 +187,7 @@ export async function buildPageSchemaGraph({
       ...profile.skills.leadership,
       "ERP Systems",
     ],
+    knowsLanguage: profile.person.languages[locale],
     alumniOf: profile.education.map(
       (education): CollegeOrUniversity => ({
         "@type": "CollegeOrUniversity",
@@ -108,9 +198,17 @@ export async function buildPageSchemaGraph({
       (name): EducationalOccupationalCredential => ({
         "@type": "EducationalOccupationalCredential",
         name,
+        credentialCategory: "certification",
       }),
     ),
-  };
+    hasOccupation: buildOccupation(locale),
+    workExperience: await buildWorkExperience(locale),
+    contactPoint: buildContactPoints(locale),
+    mainEntityOfPage:
+      page === "home" || page === "about" || page === "contact"
+        ? schemaRef(webpageId)
+        : undefined,
+  } as Person;
 
   const breadcrumbs: BreadcrumbList = {
     "@type": "BreadcrumbList",
@@ -118,9 +216,15 @@ export async function buildPageSchemaGraph({
     itemListElement: buildBreadcrumbItems(locale, page, tNav),
   };
 
-  const graph: Thing[] = [website, person, breadcrumbs];
+  const schemas: JsonLdDocument[] = [
+    withContext(logoImage),
+    withContext(organization),
+    withContext(website),
+    withContext(person),
+    withContext(breadcrumbs),
+  ];
 
-  graph.push(buildWebPageNode(page, {
+  const pageNode = buildWebPageNode(page, {
     webpageId,
     canonical,
     title,
@@ -129,16 +233,24 @@ export async function buildPageSchemaGraph({
     websiteId,
     personId,
     breadcrumbId,
-  }));
+    skillsListId,
+    faqId,
+  });
+  schemas.push(withContext(pageNode));
 
   if (page === "skills") {
-    graph.push(buildSkillsList(canonical, title, description));
+    schemas.push(
+      withContext(
+        buildSkillsList(canonical, title, description, skillsListId),
+      ),
+    );
   }
 
-  return {
-    "@context": "https://schema.org",
-    "@graph": graph,
-  };
+  if (page === "about") {
+    schemas.push(withContext(await buildFaqPage(locale, canonical, faqId)));
+  }
+
+  return schemas;
 }
 
 type WebPageNodeOptions = {
@@ -150,12 +262,14 @@ type WebPageNodeOptions = {
   websiteId: string;
   personId: string;
   breadcrumbId: string;
+  skillsListId: string;
+  faqId: string;
 };
 
 function buildWebPageNode(
   page: PageKey,
   options: WebPageNodeOptions,
-): WebPage | ProfilePage | ContactPage {
+): WebPage | ProfilePage | ContactPage | CollectionPage | FAQPage {
   const shared = {
     "@id": options.webpageId,
     url: options.canonical,
@@ -165,13 +279,16 @@ function buildWebPageNode(
     isPartOf: schemaRef(options.websiteId),
     about: schemaRef(options.personId),
     breadcrumb: schemaRef(options.breadcrumbId),
+    primaryImageOfPage: schemaRef(`${options.personId}/image`),
+    author: schemaRef(options.personId),
   };
 
-  if (page === "about") {
+  if (page === "home" || page === "about") {
     return {
       "@type": "ProfilePage",
       ...shared,
       mainEntity: schemaRef(options.personId),
+      ...(page === "about" ? { hasPart: schemaRef(options.faqId) } : {}),
     } satisfies ProfilePage;
   }
 
@@ -181,6 +298,14 @@ function buildWebPageNode(
       ...shared,
       mainEntity: schemaRef(options.personId),
     } satisfies ContactPage;
+  }
+
+  if (page === "skills") {
+    return {
+      "@type": "CollectionPage",
+      ...shared,
+      mainEntity: schemaRef(options.skillsListId),
+    } satisfies CollectionPage;
   }
 
   return {
@@ -212,10 +337,66 @@ function buildBreadcrumbItems(
   );
 }
 
+function buildOccupation(locale: Locale): Occupation {
+  return {
+    "@type": "Occupation",
+    name: siteConfig.headline,
+    description: siteConfig.specialty,
+    occupationalCategory: "Software Developer",
+    skills: [
+      ...profile.skills.frontend,
+      ...profile.skills.backend,
+      ...profile.skills.devops,
+    ].join(", "),
+    experienceRequirements: `${profile.person.yearsOfExperience}+ years`,
+    occupationLocation: {
+      "@type": "City",
+      name: profile.person.location[locale],
+    },
+  };
+}
+
+async function buildWorkExperience(locale: Locale): Promise<OrganizationRole[]> {
+  const tExperience = await getTranslations({
+    locale,
+    namespace: "experience",
+  });
+
+  return profile.experience.map((role): OrganizationRole => {
+    const dates = experienceDates[role.id];
+
+    return {
+      "@type": "OrganizationRole",
+      roleName: tExperience(`${role.id}.title`),
+      description: tExperience(`${role.id}.summary`),
+      startDate: dates.startDate,
+      endDate: dates.endDate,
+      memberOf: {
+        "@type": "Organization",
+        name: role.company,
+      } satisfies Organization,
+    } as OrganizationRole;
+  });
+}
+
+function buildContactPoints(locale: Locale): ContactPoint[] {
+  return [
+    {
+      "@type": "ContactPoint",
+      contactType: "professional inquiries",
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      availableLanguage: profile.person.languages[locale],
+      areaServed: "Worldwide",
+    },
+  ];
+}
+
 function buildSkillsList(
   canonical: string,
   title: string,
   description: string,
+  skillsListId: string,
 ): ItemList {
   const categories = Object.entries(profile.skills) as Array<
     [keyof typeof profile.skills, readonly string[]]
@@ -231,6 +412,11 @@ function buildSkillsList(
           "@type": "DefinedTerm",
           name: skill,
           description: category,
+          inDefinedTermSet: {
+            "@type": "DefinedTermSet",
+            name: title,
+            url: canonical,
+          },
         } satisfies DefinedTerm,
       }),
     ),
@@ -238,9 +424,37 @@ function buildSkillsList(
 
   return {
     "@type": "ItemList",
-    "@id": `${canonical}#skills`,
+    "@id": skillsListId,
     name: title,
     description,
+    numberOfItems: itemListElement.length,
     itemListElement,
+  };
+}
+
+async function buildFaqPage(
+  locale: Locale,
+  canonical: string,
+  faqId: string,
+): Promise<FAQPage> {
+  const tAbout = await getTranslations({ locale, namespace: "about" });
+
+  const mainEntity = faqSectionKeys.map(
+    (section): Question => ({
+      "@type": "Question",
+      name: tAbout(`${section}.title`),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: tAbout(`${section}.content`),
+      },
+    }),
+  );
+
+  return {
+    "@type": "FAQPage",
+    "@id": faqId,
+    url: canonical,
+    inLanguage: hreflangTags[locale],
+    mainEntity,
   };
 }
