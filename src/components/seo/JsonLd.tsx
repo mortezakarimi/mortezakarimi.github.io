@@ -1,37 +1,14 @@
-import { profile, siteConfig } from "@/lib/site";
+import { buildPageSchemaGraph } from "@/lib/schema";
+import type { PageKey } from "@/lib/seo";
+import type { Locale } from "@/i18n/routing";
 
-export function JsonLd() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    image: siteConfig.avatar,
-    email: siteConfig.email,
-    telephone: siteConfig.phone,
-    jobTitle: siteConfig.headline,
-    worksFor: {
-      "@type": "Organization",
-      name: siteConfig.company,
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Tehran",
-      addressCountry: "IR",
-    },
-    sameAs: siteConfig.social.map((s) => s.href),
-    knowsAbout: [
-      ...profile.skills.frontend,
-      ...profile.skills.backend,
-      ...profile.skills.devops,
-      "ERP Systems",
-      "Team Leadership",
-    ],
-    alumniOf: profile.education.map((edu) => ({
-      "@type": "CollegeOrUniversity",
-      name: edu.school,
-    })),
-  };
+type Props = {
+  locale: Locale;
+  page: PageKey;
+};
+
+export async function JsonLd({ locale, page }: Props) {
+  const schema = await buildPageSchemaGraph({ locale, page });
 
   return (
     <script

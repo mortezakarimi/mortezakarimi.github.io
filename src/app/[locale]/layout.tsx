@@ -9,7 +9,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { htmlLangTags } from "@/lib/seo";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -57,7 +57,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html
-      lang={locale}
+      lang={htmlLangTags[locale as Locale]}
       dir={isRtl ? "rtl" : "ltr"}
       className={`dark ${fontClass} h-full antialiased`}
       data-theme="dark"
@@ -65,7 +65,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <head>
         <link rel="preconnect" href="https://www.gravatar.com" />
         <link rel="dns-prefetch" href="https://www.gravatar.com" />
-        <JsonLd />
       </head>
       <body className="mesh-bg flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>

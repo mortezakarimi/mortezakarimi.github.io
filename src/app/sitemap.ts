@@ -1,29 +1,25 @@
 import type { MetadataRoute } from "next";
-import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { siteConfig, routes } from "@/lib/site";
+import { getAlternateLanguages, getCanonicalUrl, type PageKey } from "@/lib/seo";
+import { routes } from "@/lib/site";
 
 export const dynamic = "force-static";
+
+const pageKeys: Record<(typeof routes)[number], PageKey> = {
+  "": "home",
+  about: "about",
+  skills: "skills",
+  contact: "contact",
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of routing.locales) {
     for (const route of routes) {
-      const href = route ? `/${route}` : "/";
-      const pathname = getPathname({
-        locale,
-        href: href as "/" | "/about" | "/skills" | "/contact",
-      });
-      const url = `${siteConfig.url}${pathname}`;
-
-      const alternates: Record<string, string> = {};
-      for (const loc of routing.locales) {
-        alternates[loc] = `${siteConfig.url}${getPathname({
-          locale: loc,
-          href: href as "/" | "/about" | "/skills" | "/contact",
-        })}`;
-      }
+      const page = pageKeys[route];
+      const url = getCanonicalUrl(locale, page);
+      const alternates = getAlternateLanguages(page);
 
       entries.push({
         url,

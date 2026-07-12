@@ -1,46 +1,36 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import {
+  getAlternateLanguages,
+  getCanonicalUrl,
+  htmlLangTags,
+  type PageKey,
+} from "@/lib/seo";
+import { getSiteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site";
-
-type PageKey = "home" | "about" | "skills" | "contact";
 
 type CreateMetadataOptions = {
   locale: Locale;
   page: PageKey;
-  path?: string;
 };
-
-function getLocalizedPath(locale: Locale, path: string) {
-  return getPathname({ locale, href: (path || "/") as "/" | "/about" | "/skills" | "/contact" });
-}
 
 export async function createPageMetadata({
   locale,
   page,
-  path = "",
 }: CreateMetadataOptions): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const href = path ? `/${path}` : "/";
-  const pathname = getLocalizedPath(locale, href);
-  const canonical = `${siteConfig.url}${pathname}`;
+  const canonical = getCanonicalUrl(locale, page);
   const title = t(`${page}.title`);
   const description = t(`${page}.description`);
-
-  const languages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    languages[loc] = `${siteConfig.url}${getLocalizedPath(loc, href)}`;
-  }
-  languages["x-default"] = `${siteConfig.url}${getLocalizedPath("en", href)}`;
 
   return {
     title,
     description,
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(getSiteUrl()),
     alternates: {
       canonical,
-      languages,
+      languages: getAlternateLanguages(page),
     },
     openGraph: {
       title,
@@ -48,6 +38,9 @@ export async function createPageMetadata({
       url: canonical,
       siteName: siteConfig.name,
       locale: locale === "fa" ? "fa_IR" : "en_US",
+      alternateLocale: routing.locales
+        .filter((loc) => loc !== locale)
+        .map((loc) => (loc === "fa" ? "fa_IR" : "en_US")),
       type: "website",
       images: [
         {
@@ -63,6 +56,9 @@ export async function createPageMetadata({
       title,
       description,
       images: [siteConfig.avatar],
+    },
+    other: {
+      "content-language": htmlLangTags[locale],
     },
   };
 }

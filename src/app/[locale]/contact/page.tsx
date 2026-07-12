@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -17,7 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createPageMetadata({
     locale: locale as Locale,
     page: "contact",
-    path: "contact",
   });
 }
 
@@ -25,5 +25,10 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ContactSection />;
+  return (
+    <>
+      <JsonLd locale={locale as Locale} page="contact" />
+      <ContactSection />
+    </>
+  );
 }
