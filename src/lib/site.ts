@@ -1,8 +1,11 @@
 import { profile } from "@/content/profile";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const siteConfig = {
   name: profile.person.name,
-  url: "https://morteza-karimi.com",
+  get url() {
+    return getSiteUrl();
+  },
   logo: "/icon-512x512.svg",
   avatar:
     "https://www.gravatar.com/avatar/8b061f35749ca97107a1233505ef3cf6?s=480&d=mp",

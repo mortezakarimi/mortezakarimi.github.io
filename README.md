@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Morteza Karimi — Personal Website
 
-## Getting Started
+A bilingual (English / Persian) personal portfolio built with Next.js 16, HeroUI, and next-intl.
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router)
+- [HeroUI React v3](https://heroui.com/)
+- [next-intl](https://next-intl.dev/) for i18n
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- Deployed on [Vercel](https://vercel.com/)
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript compiler |
+| `npm run favicons` | Regenerate favicon assets |
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Copy `.env.example` to `.env.local` for local development:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata and sitemap |
+
+On Vercel, set `NEXT_PUBLIC_SITE_URL` to your production domain. Preview deployments automatically use `VERCEL_URL`.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push this repository to GitHub.
+2. Import the project in [Vercel](https://vercel.com/new).
+3. Vercel auto-detects Next.js — no custom build settings needed.
+4. Add `NEXT_PUBLIC_SITE_URL=https://morteza-karimi.com` in **Project → Settings → Environment Variables** (Production).
+5. Connect your custom domain in **Project → Settings → Domains**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel deploys automatically on every push to `main` (production) and on pull requests (preview).
+
+## CI
+
+GitHub Actions runs lint, typecheck, and build on every push and pull request to `main`. Deployment is handled by Vercel's Git integration — no separate deploy workflow is required.
+
+## Features enabled on Vercel
+
+- **Image Optimization** — Gravatar and local images via `next/image`
+- **i18n Middleware** — Locale detection and routing via next-intl
+- **Static Generation** — Pre-rendered pages with `generateStaticParams`
+- **Analytics** — Vercel Web Analytics
+- **Speed Insights** — Core Web Vitals monitoring
+- **Security Headers** — Configured in `vercel.json`
