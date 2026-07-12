@@ -4,14 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/post-build.mjs && cp public/.nojekyll out/.nojekyll 2>/dev/null || touch out/.nojekyll",
+    "favicons": "node scripts/generate-favicons.mjs",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.0",
+    "@fortawesome/free-brands-svg-icons": "^7.3.0",
+    "@fortawesome/free-solid-svg-icons": "^7.3.0",
+    "@fortawesome/react-fontawesome": "^3.4.0",
     "@heroui/react": "^3.2.2",
     "@heroui/styles": "^3.2.2",
     "next": "16.2.10",
+    "next-intl": "^4.13.2",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -24,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
+    "to-ico": "^1.1.5",
     "typescript": "^5"
   },
   "allowScripts": {
