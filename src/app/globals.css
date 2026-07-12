@@ -1,26 +1,171 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "@heroui/styles";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #0b1210;
+  --color-foreground: #e8f5f0;
+  --color-muted: #8ba89c;
+  --color-accent: #52d2a9;
+  --color-accent-dim: #3a9e7e;
+  --color-surface: rgba(16, 28, 24, 0.72);
+  --color-surface-border: rgba(82, 210, 169, 0.14);
+  --color-glow: rgba(82, 210, 169, 0.22);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-fa: var(--font-vazirmatn), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root,
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* HeroUI accent tokens aligned to logo #52D2A9 */
+  --accent: #52d2a9;
+  --accent-foreground: #0c1814;
+  --accent-hover: #45c098;
+  --accent-soft: color-mix(in oklab, #52d2a9 18%, transparent);
+  --accent-soft-foreground: #52d2a9;
+  --accent-soft-hover: color-mix(in oklab, #52d2a9 24%, transparent);
+
+  --success: #52d2a9;
+  --success-foreground: #0c1814;
+
+  --background: #0b1210;
+  --foreground: #e8f5f0;
+  --surface: #101a17;
+  --surface-secondary: #14201c;
+  --surface-tertiary: #182622;
+  --overlay: #14201c;
+  --overlay-foreground: #e8f5f0;
+  --muted: #8ba89c;
+  --default: #1a2824;
+  --default-foreground: #e8f5f0;
+  --default-hover: #22332e;
+  --border: rgba(82, 210, 169, 0.12);
+  --separator: rgba(82, 210, 169, 0.1);
+  --focus: #52d2a9;
+
+  /* Faster, more responsive tooltips */
+  --tooltip-delay: 250ms;
+  --tooltip-close-delay: 100ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+body.font-fa {
+  font-family: var(--font-fa);
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(82, 210, 169, 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(58, 158, 126, 0.08), transparent),
+    radial-gradient(ellipse 50% 60% at 50% 80%, rgba(82, 210, 169, 0.06), transparent),
+    var(--color-background);
+}
+
+.mesh-bg-animated {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(82, 210, 169, 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(58, 158, 126, 0.08), transparent),
+    radial-gradient(ellipse 50% 60% at 50% 80%, rgba(82, 210, 169, 0.06), transparent),
+    var(--color-background);
+  animation: mesh-shift 20s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-shift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 100%, 50% 0%;
+  }
+}
+
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glow-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glow-hover:hover {
+  border-color: rgba(82, 210, 169, 0.35);
+  box-shadow: 0 0 24px var(--color-glow);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #52d2a9, #3a9e7e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-padding {
+  padding-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-inline: 2rem;
+    padding-block: 6rem;
+  }
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* HeroUI button polish on dark brand surface */
+.button--primary {
+  --button-bg: var(--accent);
+  --button-bg-hover: var(--accent-hover);
+  --button-bg-pressed: var(--accent-hover);
+  --button-fg: var(--accent-foreground);
+}
+
+.button--secondary {
+  --button-bg: var(--accent-soft);
+  --button-bg-hover: var(--accent-soft-hover);
+  --button-bg-pressed: var(--accent-soft-hover);
+  --button-fg: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.button--tertiary {
+  --button-bg: transparent;
+  --button-bg-hover: var(--default-hover);
+  --button-bg-pressed: var(--default-hover);
+  --button-fg: var(--foreground);
+  border: 1px solid var(--border);
 }
