@@ -92,7 +92,7 @@
   "education": {
     "masters": {
       "degree": "Master's degree, Artificial Intelligence",
-      "period": "2017 – 2021"
+      "period": "2017 – 2019"
     },
     "bachelors": {
       "degree": "Bachelor's degree, Computer Software Engineering",
@@ -101,7 +101,7 @@
   },
   "skills": {
     "title": "Skills & Expertise",
-    "subtitle": "The tools and practices I use to ship reliable software — from architecture and leadership to deployment.",
+    "subtitle": "The tools and practices I
     "categories": {
       "leadership": {
         "title": "Leadership & Delivery",
