@@ -46,9 +46,6 @@ export function Header() {
             className="size-8"
             aria-hidden
           />
-          <span className="text-sm font-semibold tracking-tight text-[var(--color-foreground)]">
-            MK
-          </span>
         </Link>
 
         <NavLinks className="hidden items-center gap-1 md:flex" />

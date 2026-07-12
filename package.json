@@ -7,7 +7,7 @@
     "build": "next build && node scripts/post-build.mjs && cp public/.nojekyll out/.nojekyll 2>/dev/null || touch out/.nojekyll",
     "favicons": "node scripts/generate-favicons.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint src scripts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.0",
@@ -18,12 +18,12 @@
     "@heroui/styles": "^3.2.2",
     "next": "16.2.10",
     "next-intl": "^4.13.2",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
@@ -31,10 +31,12 @@
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
     "to-ico": "^1.1.5",
-    "typescript": "^5"
+    "typescript": "^6"
   },
   "allowScripts": {
     "sharp@0.34.5": true,
-    "unrs-resolver@1.12.2": true
+    "unrs-resolver@1.12.2": true,
+    "@parcel/watcher@2.5.6": true,
+    "@swc/core@1.15.43": true
   }
 }
