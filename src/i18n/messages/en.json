@@ -141,5 +141,56 @@
     "label": "Language",
     "en": "English",
     "fa": "فارسی"
+  },
+  "errors": {
+    "badge": "Nothing to worry about",
+    "hint": "Error {code} — but you're still in good company.",
+    "home": "Take me home",
+    "retry": "Try again",
+    "contact": "Say hello",
+    "400": {
+      "title": "That request got tangled up!",
+      "description": "Something about that link or form didn't quite compute. A fresh start usually fixes it."
+    },
+    "401": {
+      "title": "Secret handshake needed!",
+      "description": "This corner of the site needs a login first. Sign in and we'll welcome you right in."
+    },
+    "403": {
+      "title": "VIP lounge ahead!",
+      "description": "You're almost there — this area is reserved for special access. No hard feelings!"
+    },
+    "404": {
+      "title": "This page went exploring!",
+      "description": "The page you're looking for packed its bags and wandered off. Let's chart a course back home."
+    },
+    "408": {
+      "title": "That took a little too long!",
+      "description": "The request timed out while daydreaming. Give it another go — good things are worth waiting for."
+    },
+    "429": {
+      "title": "Whoa, slow and steady!",
+      "description": "You're moving faster than our servers can keep up. Take a breath, then try again in a moment."
+    },
+    "500": {
+      "title": "Our hamsters need a breather!",
+      "description": "Something unexpected happened on our end. We're on it — meanwhile, home base is always open."
+    },
+    "502": {
+      "title": "Bridge under maintenance!",
+      "description": "Two services couldn't quite agree for a moment. They'll shake hands soon — try again shortly."
+    },
+    "503": {
+      "title": "Quick stretch break!",
+      "description": "We're doing a little tune-up to serve you better. Hang tight and come back in a bit."
+    },
+    "504": {
+      "title": "Signal took the scenic route!",
+      "description": "The response is still traveling through the cosmos. Refresh and we'll reconnect you."
+    },
+    "default": {
+      "title": "A tiny plot twist!",
+      "description": "Something unexpected popped up, but every good story has one. Let's turn the page together."
+    }
   }
 }

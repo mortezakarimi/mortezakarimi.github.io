@@ -169,3 +169,187 @@ body.font-fa {
   --button-fg: var(--foreground);
   border: 1px solid var(--border);
 }
+
+/* Error page animations */
+.error-orb {
+  animation: error-float ease-in-out infinite alternate;
+  opacity: 0.55;
+}
+
+.error-sparkle {
+  animation: error-twinkle 2.4s ease-in-out infinite;
+}
+
+.error-ring {
+  animation: error-pulse-ring 4s ease-in-out infinite;
+}
+
+.error-ring--delayed {
+  animation-delay: 1.2s;
+}
+
+.error-mascot {
+  animation: error-float 5s ease-in-out infinite;
+}
+
+.error-mascot--bounce {
+  animation: error-bounce 2.8s ease-in-out infinite;
+}
+
+.error-mascot--spin {
+  animation: error-float 5s ease-in-out infinite, error-tilt 6s ease-in-out infinite;
+}
+
+.error-mascot--wiggle {
+  animation: error-wiggle 3.2s ease-in-out infinite;
+}
+
+.error-mascot--wave {
+  animation: error-wave 4.5s ease-in-out infinite;
+}
+
+.error-mascot-face {
+  animation: error-blink 4s step-end infinite;
+}
+
+.error-mascot-smile {
+  animation: error-smile 3s ease-in-out infinite;
+}
+
+.error-code-display {
+  text-shadow: 0 0 40px color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+
+.error-code-digit {
+  animation: error-digit-pop 2.4s ease-in-out infinite;
+}
+
+.error-confetti-piece {
+  top: -8%;
+  opacity: 0;
+  animation: error-confetti 4.5s ease-in-out infinite;
+}
+
+@keyframes error-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
+}
+
+@keyframes error-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-14px) scale(1.03);
+  }
+  60% {
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+
+@keyframes error-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-4deg) translateY(-6px);
+  }
+  75% {
+    transform: rotate(4deg) translateY(-4px);
+  }
+}
+
+@keyframes error-wave {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes error-tilt {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 8deg;
+  }
+}
+
+@keyframes error-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes error-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes error-digit-pop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+  }
+}
+
+@keyframes error-blink {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0;
+  }
+}
+
+@keyframes error-smile {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.15);
+  }
+}
+
+@keyframes error-confetti {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 220px, 0) rotate(540deg);
+  }
+}
