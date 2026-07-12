@@ -1,0 +1,67 @@
+import { profile } from "@/content/profile";
+
+export const siteConfig = {
+  name: profile.person.name,
+  url: "https://morteza-karimi.com",
+  logo: "/icon-512x512.svg",
+  avatar:
+    "https://www.gravatar.com/avatar/8b061f35749ca97107a1233505ef3cf6?s=480&d=mp",
+  email: profile.person.email,
+  phone: profile.person.phone,
+  personalWebsite: profile.person.personalWebsite,
+  location: profile.person.location,
+  company: profile.currentRole.company,
+  headline: profile.person.headline,
+  specialty: profile.person.specialty,
+  yearsOfExperience: profile.person.yearsOfExperience,
+  resumeUrl: "https://github.com/mortezakarimi/morteza-karimi-resume",
+  social: [
+    {
+      name: "GitHub",
+      href: "https://github.com/mortezakarimi/",
+      icon: "github" as const,
+    },
+    {
+      name: "GitLab",
+      href: "https://gitlab.com/mortezakarimi",
+      icon: "gitlab" as const,
+    },
+    {
+      name: "X",
+      href: "https://x.com/mortie_WO_rick",
+      icon: "x" as const,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/mortezakarimi/",
+      icon: "linkedin" as const,
+    },
+    {
+      name: "Medium",
+      href: "https://medium.com/@mortezak1373",
+      icon: "medium" as const,
+    },
+    {
+      name: "Telegram",
+      href: "https://t.me/mortie_without_rick",
+      icon: "telegram" as const,
+    },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@mortie-verse",
+      icon: "youtube" as const,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/mortie_without_rick",
+      icon: "instagram" as const,
+    },
+  ],
+  skills: profile.skills,
+} as const;
+
+export const routes = ["", "about", "skills", "contact"] as const;
+
+export type RouteKey = (typeof routes)[number];
+
+export { profile };
