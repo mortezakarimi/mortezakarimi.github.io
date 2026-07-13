@@ -61,10 +61,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       dir={isRtl ? "rtl" : "ltr"}
       className={`dark ${fontClass} h-full antialiased`}
       data-theme="dark"
+      data-scroll-behavior="smooth"
     >
       <head>
         <link rel="preconnect" href="https://www.gravatar.com" />
         <link rel="dns-prefetch" href="https://www.gravatar.com" />
+        <title>Morteza Karimi</title>
       </head>
       <body className="mesh-bg flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>

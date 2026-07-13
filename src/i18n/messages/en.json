@@ -21,7 +21,8 @@
     "home": "Home",
     "about": "About",
     "skills": "Skills",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "CV"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -135,7 +136,7 @@
     "copied": "Copied!"
   },
   "footer": {
-    "builtWith": "Built with Next.js & HeroUI",
+    "builtWith": "Built with ❤️ and 🐈 🐈‍⬛ using Next.js & HeroUI",
     "rights": "All rights reserved."
   },
   "localeSwitcher": {

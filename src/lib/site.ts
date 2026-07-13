@@ -17,7 +17,7 @@ export const siteConfig = {
   headline: profile.person.headline,
   specialty: profile.person.specialty,
   yearsOfExperience: profile.person.yearsOfExperience,
-  resumeUrl: "https://github.com/mortezakarimi/morteza-karimi-resume",
+  resumeUrl: "https://cv.morteza-karimi.com/english/morteza-karimi-resume-en.pdf",
   social: [
     {
       name: "GitHub",

@@ -21,7 +21,8 @@
     "home": "خانه",
     "about": "درباره من",
     "skills": "مهارت‌ها",
-    "contact": "تماس"
+    "contact": "تماس",
+    "cv": "رزومه"
   },
   "hero": {
     "greeting": "سلام، من",
@@ -135,7 +136,7 @@
     "copied": "کپی شد!"
   },
   "footer": {
-    "builtWith": "ساخته‌شده با Next.js و HeroUI",
+    "builtWith": "ساخته‌شده با ❤️ و 🐈🐈‍⬛  Next.js و HeroUI",
     "rights": "تمامی حقوق محفوظ است."
   },
   "localeSwitcher": {
