@@ -24,7 +24,7 @@ export function SocialLinks({ showEmail = false, size = "md" }: SocialLinksProps
     <div className="flex flex-wrap items-center justify-center gap-3">
       {links.map((link) => (
         <Tooltip key={link.name} delay={250} closeDelay={100}>
-          <Tooltip.Trigger className="inline-flex">
+          <Tooltip.Trigger className="inline-flex" aria-label={link.name}>
             <a
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}

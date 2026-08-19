@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { getAlternateLanguages, getCanonicalUrl, type PageKey } from "@/lib/seo";
-import { routes } from "@/lib/site";
+import { contentUpdatedAt, routes } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 const pageKeys: Record<(typeof routes)[number], PageKey> = {
   "": "home",
   about: "about",
+  projects: "projects",
   skills: "skills",
   contact: "contact",
 };
@@ -23,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       entries.push({
         url,
-        lastModified: new Date(),
+        lastModified: contentUpdatedAt,
         changeFrequency: route === "" ? "weekly" : "monthly",
         priority: route === "" ? 1 : 0.8,
         alternates: {

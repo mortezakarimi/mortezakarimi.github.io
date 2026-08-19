@@ -27,6 +27,9 @@ export async function createPageMetadata({
   return {
     title,
     description,
+    authors: [{ name: siteConfig.name, url: getSiteUrl() }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
     metadataBase: new URL(getSiteUrl()),
     alternates: {
       canonical,
@@ -42,20 +45,11 @@ export async function createPageMetadata({
         .filter((loc) => loc !== locale)
         .map((loc) => (loc === "fa" ? "fa_IR" : "en_US")),
       type: "website",
-      images: [
-        {
-          url: siteConfig.avatar,
-          width: 480,
-          height: 480,
-          alt: siteConfig.name,
-        },
-      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
-      images: [siteConfig.avatar],
     },
     other: {
       "content-language": htmlLangTags[locale],

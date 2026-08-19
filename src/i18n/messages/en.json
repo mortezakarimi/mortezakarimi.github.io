@@ -1,25 +1,30 @@
 {
   "metadata": {
     "home": {
-      "title": "Morteza Karimi | Team Lead & Senior Software Engineer — Node.js, NestJS, Next.js",
-      "description": "Team Lead and Senior Software Engineer with 13+ years building ERP platforms, modern web apps, and high-performance backends. Based in Tehran, Iran."
+      "title": "Morteza Karimi | Team Lead & Senior Developer",
+      "description": "Morteza Karimi is a Team Lead and Senior Software Engineer in Tehran. 13+ years leading software development with Node.js, NestJS, and Next.js."
     },
     "about": {
-      "title": "About Morteza Karimi | Team Lead & Senior Software Engineer",
-      "description": "13+ years turning legacy workflows into modern ERP and web systems. Led teams at Trium Novem, BUGLOOS, and ParsPack using Node.js, NestJS, and Next.js."
+      "title": "About Morteza Karimi | Team Lead & Senior Developer",
+      "description": "Meet Morteza Karimi: Team Lead and Senior Developer who led engineering at Trium Novem, BUGLOOS, and ParsPack with Node.js, NestJS, and Next.js."
+    },
+    "projects": {
+      "title": "Projects by Morteza Karimi | Senior Developer",
+      "description": "Open-source and production work by Morteza Karimi, Team Lead and Senior Developer — RTL dashboards, Ansible tooling, and a public resume."
     },
     "skills": {
-      "title": "Skills | Node.js, NestJS, Next.js, React & DevOps — Morteza Karimi",
-      "description": "Technical skills across team leadership, React, Next.js, NestJS, PostgreSQL, Docker, Ansible, and CI/CD — built for scalable production systems."
+      "title": "Skills of Morteza Karimi | Senior Developer",
+      "description": "Team leadership and senior development skills of Morteza Karimi: React, Next.js, NestJS, PostgreSQL, Docker, Ansible, and CI/CD."
     },
     "contact": {
-      "title": "Contact Morteza Karimi | Team Lead & Senior Software Engineer",
-      "description": "Reach Morteza Karimi for team lead, senior engineering, and consulting opportunities. Email me@morteza-karimi.com or connect on LinkedIn."
+      "title": "Contact Morteza Karimi | Team Lead",
+      "description": "Contact Morteza Karimi for team lead and senior software development roles. Email me@morteza-karimi.com or connect on LinkedIn."
     }
   },
   "nav": {
     "home": "Home",
     "about": "About",
+    "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
     "cv": "CV"
@@ -27,6 +32,7 @@
   "hero": {
     "greeting": "Hello, I'm",
     "Morteza Karimi": "Morteza Karimi",
+    "nativeName": "مرتضی کریمی",
     "title": "Team Lead & Senior Software Engineer",
     "subtitle": "Node.js · NestJS · Next.js",
     "headline": "I turn complex systems into fast, reliable software",
@@ -35,10 +41,44 @@
     "location": "Based in {location}",
     "ctaAbout": "See my experience",
     "ctaContact": "Start a conversation",
-    "ctaSkills": "View skills"
+    "ctaSkills": "View skills",
+    "ctaProjects": "View projects"
+  },
+  "home": {
+    "bioTitle": "Team lead and senior developer",
+    "bio": "Morteza Karimi is a Team Lead and Senior Software Engineer based in Tehran. He leads software development teams, architects NestJS backends, and ships Next.js products that replace fragile spreadsheets with systems companies can run every day.",
+    "pointsTitle": "How Morteza Karimi works",
+    "points": {
+      "lead": "As a development team lead, he coordinates delivery, mentoring, and code quality so small teams ship on a reliable cadence.",
+      "senior": "As a senior developer he owns architecture across Node.js, NestJS, and Next.js — from APIs and data models to production deployments.",
+      "impact": "Recent work includes a construction ERP that cut process problems, a mobile time-tracking app, and backend services at ParsPack."
+    },
+    "workTitle": "Selected work",
+    "workSubtitle": "Open-source tools and public artifacts from Morteza Karimi’s senior development work.",
+    "workCta": "See all projects"
+  },
+  "projects": {
+    "title": "Projects by Morteza Karimi",
+    "subtitle": "Selected open-source and public work from a Team Lead and Senior Developer — dashboards, automation, and professional artifacts.",
+    "repo": "View repository",
+    "live": "Open live",
+    "items": {
+      "gentelella-rtl": {
+        "summary": "RTL port of the Gentelella admin template so Persian and Arabic teams can ship Bootstrap dashboards without fighting layout direction."
+      },
+      "adminator-rtl": {
+        "summary": "Right-to-left Adminator dashboard theme for web apps that need a polished admin UI in RTL locales."
+      },
+      "resume": {
+        "summary": "LaTeX resume source for Morteza Karimi, kept in sync with the public PDF used by hiring teams."
+      },
+      "awx-installer": {
+        "summary": "Ansible-based installer that makes standing up AWX on Debian-family servers repeatable instead of a weekend of tribal knowledge."
+      }
+    }
   },
   "about": {
-    "title": "About Me",
+    "title": "About Morteza Karimi",
     "intro": {
       "title": "What I do",
       "content": "I'm Morteza Karimi, a Team Lead and Senior Software Engineer based in Tehran. I specialize in migrating legacy workflows to modern JavaScript stacks and building ERP platforms that teams can trust every day."
@@ -102,7 +142,7 @@
   },
   "skills": {
     "title": "Skills & Expertise",
-    "subtitle": "The tools and practices I use to ship reliable software — from architecture and leadership to deployment.",
+    "subtitle": "The senior development and team-leadership stack Morteza Karimi uses to ship reliable software — from architecture to deployment.",
     "categories": {
       "leadership": {
         "title": "Leadership & Delivery",
@@ -127,8 +167,8 @@
     }
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Looking for a team lead or senior engineer? Tell me about your product, team, or timeline — I'll get back to you.",
+    "title": "Contact Morteza Karimi",
+    "subtitle": "Looking for a team lead or senior developer? Write to Morteza Karimi about your product, engineering team, or hiring timeline — he replies to serious inquiries.",
     "email": "Email",
     "phone": "Phone",
     "social": "Connect online",

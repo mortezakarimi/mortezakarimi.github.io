@@ -12,6 +12,7 @@ export const siteConfig = {
   email: profile.person.email,
   phone: profile.person.phone,
   personalWebsite: profile.person.personalWebsite,
+  aliasWebsite: profile.person.aliasWebsite,
   location: profile.person.location,
   company: profile.currentRole.company,
   headline: profile.person.headline,
@@ -63,7 +64,9 @@ export const siteConfig = {
   skills: profile.skills,
 } as const;
 
-export const routes = ["", "about", "skills", "contact"] as const;
+export const contentUpdatedAt = "2026-08-19";
+
+export const routes = ["", "about", "projects", "skills", "contact"] as const;
 
 export type RouteKey = (typeof routes)[number];
 

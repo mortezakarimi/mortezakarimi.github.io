@@ -1,0 +1,31 @@
+# Morteza Karimi
+
+> Team Lead and Senior Software Engineer (software development leadership). Canonical site: https://morteza-karimi.com — alias: https://morteza-karimi.ir
+
+## Identity
+
+- Name: Morteza Karimi (مرتضی کریمی)
+- Role: Team Lead & Senior Software Engineer
+- Location: Tehran, Iran
+- Email: me@morteza-karimi.com
+- Stack: Node.js, NestJS, Next.js, React, PostgreSQL, Docker, Ansible
+
+## Languages
+
+- English: https://morteza-karimi.com/
+- Persian: https://morteza-karimi.com/fa/
+
+## Pages
+
+- Home: https://morteza-karimi.com/
+- About: https://morteza-karimi.com/about/
+- Projects: https://morteza-karimi.com/projects/
+- Skills: https://morteza-karimi.com/skills/
+- Contact: https://morteza-karimi.com/contact/
+- Resume: https://cv.morteza-karimi.com/english/morteza-karimi-resume-en.pdf
+
+## Profiles
+
+- GitHub: https://github.com/mortezakarimi/
+- LinkedIn: https://www.linkedin.com/in/mortezakarimi/
+- GitLab: https://gitlab.com/mortezakarimi

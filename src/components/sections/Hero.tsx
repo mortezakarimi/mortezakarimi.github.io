@@ -31,9 +31,13 @@ export function Hero() {
             {t("greeting")}
           </p>
 
-          <h1 className="mb-3 text-4xl font-bold tracking-tight md:text-5xl">
+          <h1 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
             <span className="text-gradient">{t(siteConfig.name)}</span>
           </h1>
+
+          <p className="mb-3 text-base text-[var(--color-muted)]" lang={locale === "fa" ? "en" : "fa"}>
+            {t("nativeName")}
+          </p>
 
           <p className="mb-2 text-xl font-semibold text-[var(--color-foreground)]">
             {t("headline")}
@@ -63,6 +67,9 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NavButton href="/about" variant="primary">
               {t("ctaAbout")}
+            </NavButton>
+            <NavButton href="/projects" variant="secondary">
+              {t("ctaProjects")}
             </NavButton>
             <NavButton href="/skills" variant="secondary">
               {t("ctaSkills")}

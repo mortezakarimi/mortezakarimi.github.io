@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { Hero } from "@/components/sections/Hero";
-import { HomeIntro } from "@/components/sections/HomeIntro";
+import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { routing, type Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -18,19 +17,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return createPageMetadata({
     locale: locale as Locale,
-    page: "home",
+    page: "projects",
   });
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function ProjectsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
   return (
     <>
-      <JsonLd locale={locale as Locale} page="home" />
-      <Hero />
-      <HomeIntro />
+      <JsonLd locale={locale as Locale} page="projects" />
+      <ProjectsGrid />
     </>
   );
 }

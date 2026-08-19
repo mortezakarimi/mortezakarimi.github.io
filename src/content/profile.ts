@@ -10,7 +10,8 @@ export const profile = {
     specialty: "Node.js · NestJS · Next.js",
     email: "me@morteza-karimi.com",
     phone: "+989216351266",
-    personalWebsite: "https://morteza-karimi.ir",
+    personalWebsite: "https://morteza-karimi.com",
+    aliasWebsite: "https://morteza-karimi.ir",
     yearsOfExperience: 13,
     location: {
       en: "Tehran, Iran",

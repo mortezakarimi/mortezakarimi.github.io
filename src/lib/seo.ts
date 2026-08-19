@@ -1,18 +1,14 @@
-import { getPathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site-url";
 
-export type PageKey = "home" | "about" | "skills" | "contact";
+export type PageKey = "home" | "about" | "projects" | "skills" | "contact";
 
-export type AppHref =
-  | "/"
-  | "/about"
-  | "/skills"
-  | "/contact";
+export type AppHref = "/" | "/about" | "/projects" | "/skills" | "/contact";
 
 const pagePaths: Record<PageKey, AppHref> = {
   home: "/",
   about: "/about",
+  projects: "/projects",
   skills: "/skills",
   contact: "/contact",
 };
@@ -33,11 +29,19 @@ export function getPagePath(page: PageKey): AppHref {
   return pagePaths[page];
 }
 
+/** Locale paths without next-intl request context (safe in sitemap). */
 export function getLocalizedPathname(locale: Locale, page: PageKey): string {
-  return getPathname({
-    locale,
-    href: getPagePath(page),
-  });
+  const path = pagePaths[page];
+
+  if (locale === routing.defaultLocale) {
+    return path;
+  }
+
+  if (path === "/") {
+    return `/${locale}`;
+  }
+
+  return `/${locale}${path}`;
 }
 
 export function getCanonicalUrl(locale: Locale, page: PageKey): string {
