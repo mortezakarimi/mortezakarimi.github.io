@@ -31,7 +31,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
+    "eslint": "^10.0.0",
     "eslint-config-next": "16.3.1",
     "tailwindcss": "^4",
     "to-ico": "^1.1.5",
