@@ -6,9 +6,10 @@
 
 - Name: Morteza Karimi (مرتضی کریمی)
 - Role: Team Lead & Senior Software Engineer
+- Current role: Senior Backend Developer at Maze (ماز), Tehran — https://biomaze.ir/
 - Location: Tehran, Iran
 - Email: me@morteza-karimi.com
-- Stack: Node.js, NestJS, Next.js, React, PostgreSQL, Docker, Ansible
+- Stack: Go, Node.js, NestJS, Next.js, React, Laravel, PostgreSQL, Docker, Kubernetes, Ansible
 
 ## Languages
 

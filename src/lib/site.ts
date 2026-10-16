@@ -64,7 +64,7 @@ export const siteConfig = {
   skills: profile.skills,
 } as const;
 
-export const contentUpdatedAt = "2026-08-19";
+export const contentUpdatedAt = "2026-10-15";
 
 export const routes = ["", "about", "projects", "skills", "contact"] as const;
 

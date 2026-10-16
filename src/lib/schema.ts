@@ -49,7 +49,8 @@ const experienceDates: Record<
   (typeof profile.experience)[number]["id"],
   { startDate: string; endDate?: string }
 > = {
-  parspack: { startDate: "2026-02" },
+  maze: { startDate: "2026-08" },
+  parspack: { startDate: "2026-02", endDate: "2026-08" },
   trium: { startDate: "2023-08", endDate: "2025-09" },
   bugloos: { startDate: "2019-08", endDate: "2023-09" },
 };
@@ -83,6 +84,7 @@ export async function buildPageSchemas({
   const skillsListId = `${canonical}#skills`;
   const projectsListId = `${canonical}#projects`;
   const avatarId = `${personId}/image`;
+  const currentEmployer = buildCurrentEmployer(siteUrl);
 
   const avatarImage: ImageObject = {
     "@type": "ImageObject",
@@ -121,10 +123,7 @@ export async function buildPageSchemas({
     telephone: siteConfig.phone,
     jobTitle: siteConfig.headline,
     description: tMeta("home.description"),
-    worksFor: {
-      "@type": "Organization",
-      name: siteConfig.company,
-    } satisfies Organization,
+    worksFor: currentEmployer,
     homeLocation: {
       "@type": "Place",
       name: profile.person.location[locale],
@@ -170,7 +169,7 @@ export async function buildPageSchemas({
       }),
     ),
     hasOccupation: buildOccupation(locale),
-    workExperience: await buildWorkExperience(locale),
+    workExperience: await buildWorkExperience(locale, siteUrl, currentEmployer),
     contactPoint: buildContactPoints(locale),
     mainEntityOfPage:
       page === "home" || page === "about" || page === "contact"
@@ -340,7 +339,28 @@ function buildOccupation(locale: Locale): Occupation {
   };
 }
 
-async function buildWorkExperience(locale: Locale): Promise<OrganizationRole[]> {
+function organizationId(siteUrl: string, slug: string): string {
+  return `${siteUrl}/#org-${slug}`;
+}
+
+function buildCurrentEmployer(siteUrl: string): Organization {
+  const { currentRole } = profile;
+
+  return {
+    "@type": "Organization",
+    "@id": organizationId(siteUrl, currentRole.company.toLowerCase()),
+    name: currentRole.company,
+    alternateName: currentRole.companyAlternateName,
+    url: currentRole.companyUrl,
+    sameAs: [...currentRole.companySameAs],
+  };
+}
+
+async function buildWorkExperience(
+  locale: Locale,
+  siteUrl: string,
+  currentEmployer: Organization,
+): Promise<OrganizationRole[]> {
   const tExperience = await getTranslations({
     locale,
     namespace: "experience",
@@ -355,10 +375,14 @@ async function buildWorkExperience(locale: Locale): Promise<OrganizationRole[]> 
       description: tExperience(`${role.id}.summary`),
       startDate: dates.startDate,
       endDate: dates.endDate,
-      memberOf: {
-        "@type": "Organization",
-        name: role.company,
-      } satisfies Organization,
+      memberOf:
+        role.company === profile.currentRole.company
+          ? currentEmployer
+          : ({
+              "@type": "Organization",
+              "@id": organizationId(siteUrl, role.id),
+              name: role.company,
+            } satisfies Organization),
     } as OrganizationRole;
   });
 }

@@ -26,5 +26,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/(fa|en)/:path*", "/((?!_next|_vercel).*)"],
+  matcher: [
+    "/",
+    "/(fa|en)/:path*",
+    "/((?!_next|_vercel|opengraph-image|twitter-image).*)",
+  ],
 };

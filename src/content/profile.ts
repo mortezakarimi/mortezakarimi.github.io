@@ -23,9 +23,12 @@ export const profile = {
     },
   },
   currentRole: {
-    company: "ParsPack",
-    title: "Back End Developer",
-    period: { en: "Feb 2026 – Present", fa: "بهمن ۱۴۰۴ – اکنون" },
+    company: "Maze",
+    companyAlternateName: "ماز",
+    companyUrl: "https://biomaze.ir/",
+    companySameAs: ["https://www.linkedin.com/company/mazgroup/"],
+    title: "Senior Backend Developer",
+    period: { en: "Aug 2026 – Present", fa: "مرداد ۱۴۰۵ – اکنون" },
     location: { en: "Tehran, Iran", fa: "تهران، ایران" },
   },
   highlights: [
@@ -51,6 +54,14 @@ export const profile = {
     },
   ],
   experience: [
+    {
+      id: "maze",
+      company: "Maze",
+      titleKey: "maze.title",
+      periodKey: "maze.period",
+      locationKey: "maze.location",
+      summaryKey: "maze.summary",
+    },
     {
       id: "parspack",
       company: "ParsPack",
@@ -112,6 +123,7 @@ export const profile = {
       "Tailwind CSS",
     ],
     backend: [
+      "Go",
       "Node.js",
       "NestJS",
       "Express.js",

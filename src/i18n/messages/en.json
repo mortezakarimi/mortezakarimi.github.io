@@ -2,11 +2,11 @@
   "metadata": {
     "home": {
       "title": "Morteza Karimi | Team Lead & Senior Developer",
-      "description": "Morteza Karimi is a Team Lead and Senior Software Engineer in Tehran. 13+ years leading software development with Node.js, NestJS, and Next.js."
+      "description": "Morteza Karimi, Team Lead and Senior Software Engineer in Tehran, now Senior Backend Developer at Maze. Go, Node.js, Next.js."
     },
     "about": {
       "title": "About Morteza Karimi | Team Lead & Senior Developer",
-      "description": "Meet Morteza Karimi: Team Lead and Senior Developer who led engineering at Trium Novem, BUGLOOS, and ParsPack with Node.js, NestJS, and Next.js."
+      "description": "Morteza Karimi: Senior Backend Developer at Maze, former team lead at Trium Novem and BUGLOOS. Go, Kubernetes, Node.js, Next.js."
     },
     "projects": {
       "title": "Projects by Morteza Karimi | Senior Developer",
@@ -51,7 +51,7 @@
     "points": {
       "lead": "As a development team lead, he coordinates delivery, mentoring, and code quality so small teams ship on a reliable cadence.",
       "senior": "As a senior developer he owns architecture across Node.js, NestJS, and Next.js — from APIs and data models to production deployments.",
-      "impact": "Recent work includes a construction ERP that cut process problems, a mobile time-tracking app, and backend services at ParsPack."
+      "impact": "Recent work includes Go and Kubernetes backend services at Maze, a construction ERP that cut process problems, and a mobile time-tracking app."
     },
     "workTitle": "Selected work",
     "workSubtitle": "Open-source tools and public artifacts from Morteza Karimi’s senior development work.",
@@ -111,11 +111,17 @@
     "apiPerformance": "reduction in API response times through query and cache optimization"
   },
   "experience": {
+    "maze": {
+      "title": "Senior Backend Developer",
+      "period": "Aug 2026 – Present",
+      "location": "Tehran, Iran (On-site)",
+      "summary": "Building backend services in Go deployed on Kubernetes, and developing Laravel services and APIs that integrate with them."
+    },
     "parspack": {
-      "title": "Back End Developer",
-      "period": "Feb 2026 – Present",
+      "title": "Backend Developer",
+      "period": "Feb 2026 – Aug 2026",
       "location": "Tehran, Iran",
-      "summary": "Building backend services at ParsPack, contributing to scalable cloud and hosting infrastructure for production workloads."
+      "summary": "Built backend services at ParsPack, including Go middleware for the Kubernetes API and Laravel integrations for its cloud and hosting platform."
     },
     "trium": {
       "title": "Development Team Lead & Full-stack Developer",
